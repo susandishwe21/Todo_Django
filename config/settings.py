@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',        # Add Django REST Framework
     'todo.apps.TodoConfig', #Add your new todo app
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -49,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # MUST BE AT THE TOP!
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -137,3 +141,14 @@ REST_FRAMEWORK = {
     'PAGE_SIZE': 5 , # <--- Sets the default to 5 items per page
     'EXCEPTION_HANDLER': 'config.utils.custom_exception_handler',
 }
+
+# config/settings.py
+
+CORS_ALLOWED_ORIGINS = [
+    # Add the exact URL your browser is using for the React app
+    "http://localhost:5173",  
+    "http://127.0.0.1:5173",
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+]
+# If your React app is NOT using the standard ports, add the correct one here!
