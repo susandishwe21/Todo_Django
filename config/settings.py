@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-e_1co4!8-71xbrmplvho=)rk108qalkd9j$%)0^=uk0vshxoxd'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -83,7 +82,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tododb',
         'USER': 'admin',
-        'PASSWORD': 'password',
+        'PASSWORD': "password",
         'HOST': 'localhost',
         'PORT': '5432',
     }
